@@ -1,5 +1,6 @@
 import os
 import requests
+import datetime
 
 def do_ping():
   os.system('fping -e -a -r 0 <hosts.txt >output.txt')
@@ -10,8 +11,6 @@ def load_hosts():
   f = open('hosts.txt')
   for line in f:
     hosts.add(line.strip())
-
-load_hosts()
 
 def parse_output():
   global output
@@ -26,6 +25,7 @@ def parse_output():
     output[host] = time
 
 def full():
+  time = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
   do_ping()
   parse_output()
   global output
@@ -33,8 +33,13 @@ def full():
   for k in output:
     v = output[k]
     # requests.get(
-    url = 'http://ping-store.herokuapp.com/pings-post?origin=A8&target=%s&success=%s&rtt=%s' % (k, 'false' if v is None else 'true', v)
+    url = 'http://ping-store.herokuapp.com/pings-post?origin=A8&target=%s&success=%s&rtt=%s&time=%s' % (k, 'false' if v is None else 'true', v, time)
     print(url)
-    requests.get(url)
+    r = requests.get(url)
+    print(r.text)
 
+
+load_hosts()
+full()
+print('done!')
 
