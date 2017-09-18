@@ -1,0 +1,2 @@
+cd ~/ping-probe
+python3 -m p1.py
