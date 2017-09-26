@@ -2,6 +2,8 @@
 Sonda do pingowania przeznaczona na RaspberryPi
 
 ## TODO
+1. komunikacja z fping poprzez pliki?
+1. lepsza nazwa origin
 1. apt-get update
 1. apt-get upgrade
 1. pip?
