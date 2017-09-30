@@ -1,2 +1,3 @@
 cd ~/ping-probe
+curl -s "http://ping-store.herokuapp.com/makedb"
 python3 -m p1.py
