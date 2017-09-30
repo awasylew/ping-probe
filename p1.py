@@ -33,7 +33,7 @@ def full():
   for k in output:
     v = output[k]
     # requests.get(
-    url = 'http://ping-store.herokuapp.com/pings-post?origin=A8&target=%s&success=%s&rtt=%s&time=%s' % (k, 'false' if v is None else 'true', v, time)
+    url = 'http://ping-store.herokuapp.com/pings-post?origin=raspi&target=%s&success=%s&rtt=%s&time=%s' % (k, 'false' if v is None else 'true', v, time)
     print(url)
     r = requests.get(url)
     print(r.text)
