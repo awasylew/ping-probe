@@ -1,3 +1,4 @@
 cd ~/ping-probe
 curl -s "http://ping-store.herokuapp.com/makedb"
-python3 -m p1.py
+export STORE_URL=http://192.168.2.102:5000/pings
+python3 p1.py

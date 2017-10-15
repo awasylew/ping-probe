@@ -32,11 +32,14 @@ def full():
   print(output)
   for k in output:
     v = output[k]
-    # requests.get(
-    url = 'http://ping-store.herokuapp.com/pings-post?origin=raspi&target=%s&success=%s&rtt=%s&time=%s' % (k, 'false' if v is None else 'true', v, time)
-    print(url)
-    r = requests.get(url)
-    print(r.text)
+    url = os.getenv('STORE_URL')
+    # print('url:', url)
+    success = 'false' if v is None else 'true'
+    payload = '{"origin":"raspi2", "target":"%s", "success":"%s", "rtt":"%s", "time":"%s"}' % (k, success, v, time)
+    # print('payload:', payload)
+    h = {'Content-type': 'application/json'}
+    r = requests.post(url, data=payload, headers=h)
+    print(r, r.text)
 
 
 load_hosts()
