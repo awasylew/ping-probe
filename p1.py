@@ -33,9 +33,9 @@ def full():
   for k in output:
     v = output[k]
     url = os.getenv('STORE_URL')
-    # print('url:', url)
+    print('url:', url)
     success = 'false' if v is None else 'true'
-    payload = '{"origin":"raspi2", "target":"%s", "success":"%s", "rtt":"%s", "time":"%s"}' % (k, success, v, time)
+    payload = '{"origin":"raspi2a", "target":"%s", "success":"%s", "rtt":"%s", "time":"%s"}' % (k, success, v, time)
     # print('payload:', payload)
     h = {'Content-type': 'application/json'}
     r = requests.post(url, data=payload, headers=h)
