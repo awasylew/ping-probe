@@ -1,8 +1,9 @@
 cd ~/ping-probe
-curl -s "http://ping-store.herokuapp.com/makedb"
+# curl -s "http://ping-store.herokuapp.com/makedb"
 # export STORE_URL=http://192.168.2.102:5000/pings
-# export STORE_URL=http://ping-store.herokuapp.com/pings
-export STORE_URL=https://dmd21xtvq2.execute-api.eu-west-1.amazonaws.com/dev/pings
+export STORE_URL=http://ping-store-redis.herokuapp.com/pings
+# export STORE_URL=https://dmd21xtvq2.execute-api.eu-west-1.amazonaws.com/dev/pings
+# export STORE_URL=http://192.168.2.100:5000/pings
 # export STORE_URL=https://dmd21xtvq2.execute-api.eu-west-1.amazonaws.com/dev/pings2
 # export STORE_URL=http://192.168.2.101:5000/pings2
 python3 p1.py
